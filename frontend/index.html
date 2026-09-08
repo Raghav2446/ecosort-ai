@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EcoSort AI - AI-powered waste segregation and responsible disposal assistant."
+    >
+
+    <title>
+        EcoSort AI | Smart Waste Segregation
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            EcoSort<span>AI</span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="#analyzer">
+                Analyzer
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="section-label">
+            AI FOR SUSTAINABILITY
+        </span>
+
+
+        <h1>
+            Smarter Waste.
+            <br>
+            <span>Cleaner Future.</span>
+        </h1>
+
+
+        <p>
+            EcoSort AI uses artificial intelligence
+            to identify waste, recommend responsible
+            disposal methods, and encourage sustainable
+            choices.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#analyzer"
+                class="primary-btn"
+            >
+                Analyze Waste
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="secondary-btn"
+            >
+                View Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="hero-card">
+
+        <div class="eco-circle">
+            AI
+        </div>
+
+
+        <h3>
+            Intelligent Waste Analysis
+        </h3>
+
+
+        <p>
+            Detect. Classify. Dispose responsibly.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section
+    class="analyzer-section"
+    id="analyzer"
+>
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            AI ANALYZER
+        </span>
+
+
+        <h2>
+            Identify Your Waste
+        </h2>
+
+
+        <p>
+            Upload an image or describe the waste
+            to receive an AI-powered recommendation.
+        </p>
+
+    </div>
+
+
+
+    <div class="analyzer-container">
+
+
+        <div class="analyzer-card">
+
+            <div class="card-icon">
+                IMAGE
+            </div>
+
+
+            <h3>
+                Analyze Image
+            </h3>
+
+
+            <p>
+                Upload a photo containing one or
+                multiple waste items.
+            </p>
+
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/png,image/jpeg,image/webp"
+                hidden
+            >
+
+
+            <label
+                for="imageInput"
+                class="upload-btn"
+            >
+                Choose Image
+            </label>
+
+
+            <div
+                id="imagePreview"
+                class="image-preview"
+            ></div>
+
+
+            <button
+                id="analyzeImageBtn"
+                class="analyze-btn"
+                type="button"
+            >
+                Analyze Image
+            </button>
+
+        </div>
+
+
+
+        <div class="analyzer-card">
+
+            <div class="card-icon">
+                TEXT
+            </div>
+
+
+            <h3>
+                Describe Waste
+            </h3>
+
+
+            <p>
+                Describe an item if you don't
+                have an image.
+            </p>
+
+
+            <textarea
+                id="wasteText"
+                maxlength="1000"
+                placeholder="Example: An old mobile phone with a damaged battery..."
+            ></textarea>
+
+
+            <button
+                id="analyzeTextBtn"
+                class="analyze-btn"
+                type="button"
+            >
+                Analyze Waste
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="responsible-ai">
+
+        <strong>
+            Responsible AI
+        </strong>
+
+
+        <p>
+            EcoSort AI provides AI-generated guidance
+            for educational and sustainability purposes.
+            When confidence is low or an item is unclear,
+            verify the recommendation using local
+            waste-management guidelines.
+        </p>
+
+    </div>
+
+
+
+    <div
+        id="resultSection"
+        class="result-section hidden"
+    >
+
+        <div class="result-header">
+
+            <div>
+
+                <span class="section-label">
+                    AI ANALYSIS
+                </span>
+
+
+                <h2>
+                    Analysis Result
+                </h2>
+
+            </div>
+
+
+            <div class="confidence">
+
+                <span>
+                    Items Detected
+                </span>
+
+
+                <strong id="itemsDetected">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="result-grid"
+            id="resultGrid"
+        ></div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    class="steps-section"
+    id="how-it-works"
+>
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            HOW IT WORKS
+        </span>
+
+
+        <h2>
+            From Waste to Action
+        </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <span>
+                01
+            </span>
+
+
+            <h3>
+                Upload
+            </h3>
+
+
+            <p>
+                Upload an image or describe
+                the waste item.
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <span>
+                02
+            </span>
+
+
+            <h3>
+                AI Analysis
+            </h3>
+
+
+            <p>
+                Gemini AI identifies and
+                categorizes the waste.
+            </p>
+
+        </div>
+
+
+
+        <div class="step">
+
+            <span>
+                03
+            </span>
+
+
+            <h3>
+                Take Action
+            </h3>
+
+
+            <p>
+                Follow disposal, reuse and
+                sustainability recommendations.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="sdg-section">
+
+    <div>
+
+        <span class="section-label">
+            UN SUSTAINABLE DEVELOPMENT GOAL
+        </span>
+
+
+        <h2>
+            SDG 12
+        </h2>
+
+
+        <p>
+            Responsible Consumption and Production
+        </p>
+
+    </div>
+
+
+    <div class="sdg-content">
+
+        <p>
+            EcoSort AI encourages responsible waste
+            handling by helping users understand
+            how different materials should be
+            separated, reused or disposed of.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        EcoSort AI • AI for Sustainable Living
+    </p>
+
+
+    <p>
+        SDG 12 • Responsible Consumption and Production
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

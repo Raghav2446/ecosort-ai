@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        EcoSort AI | Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+
+    <style>
+
+        .dashboard {
+            max-width: 1180px;
+            margin: auto;
+            padding: 80px 25px;
+        }
+
+
+        .dashboard-header {
+            margin-bottom: 35px;
+        }
+
+
+        .dashboard-header h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+
+        .dashboard-header p {
+            color: #82928a;
+        }
+
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 40px;
+        }
+
+
+        .stat-card {
+            background: #0b1c15;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
+
+            border-radius: 14px;
+
+            padding: 25px;
+        }
+
+
+        .stat-card span {
+            display: block;
+
+            color: #82928a;
+
+            font-size: 13px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .stat-card strong {
+            display: block;
+
+            color: #63e6a1;
+
+            font-size: 35px;
+        }
+
+
+        .dashboard-panel {
+            background: #0b1c15;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.06
+                );
+
+            border-radius: 14px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .dashboard-panel h2 {
+            margin-bottom: 20px;
+        }
+
+
+        .category-list {
+            display: grid;
+            gap: 12px;
+        }
+
+
+        .category-row {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            padding: 14px;
+
+            background:
+                #07130f;
+
+            border-radius: 8px;
+        }
+
+
+        .category-row span {
+            color: #aebdb6;
+        }
+
+
+        .category-row strong {
+            color: #63e6a1;
+        }
+
+
+        .history-list {
+            display: grid;
+            gap: 15px;
+        }
+
+
+        .history-card {
+            padding: 20px;
+
+            background:
+                #07130f;
+
+            border-radius: 10px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.05
+                );
+        }
+
+
+        .history-top {
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 15px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .history-top strong {
+            color: #63e6a1;
+        }
+
+
+        .history-top span {
+            color: #66776e;
+
+            font-size: 12px;
+        }
+
+
+        .history-card p {
+            color: #82928a;
+
+            font-size: 14px;
+        }
+
+
+        .empty-history {
+            color: #82928a;
+
+            padding: 20px 0;
+        }
+
+
+        .dashboard-note {
+            padding: 18px;
+
+            border-radius: 10px;
+
+            background:
+                rgba(
+                    99,
+                    230,
+                    161,
+                    0.04
+                );
+
+            border:
+                1px solid
+                rgba(
+                    99,
+                    230,
+                    161,
+                    0.12
+                );
+
+            color: #82928a;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        @media (max-width: 800px) {
+
+            .stats-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+
+            .dashboard-header h1 {
+                font-size:
+                    35px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .stats-grid {
+                grid-template-columns:
+                    1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            EcoSort<span>AI</span>
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Analyzer
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <div class="dashboard-header">
+
+        <span class="section-label">
+            ECO ANALYTICS
+        </span>
+
+
+        <h1>
+            Sustainability Dashboard
+        </h1>
+
+
+        <p>
+            Track waste analysis and understand
+            the categories identified by EcoSort AI.
+        </p>
+
+    </div>
+
+
+
+    <section class="stats-grid">
+
+
+        <div class="stat-card">
+
+            <span>
+                Total Analyses
+            </span>
+
+            <strong id="totalAnalyses">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <span>
+                Items Detected
+            </span>
+
+            <strong id="totalItems">
+                0
+            </strong>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <span>
+                Avg Confidence
+            </span>
+
+            <strong id="averageConfidence">
+                0%
+            </strong>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <span>
+                Avg Eco Score
+            </span>
+
+            <strong id="averageEcoScore">
+                0
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="dashboard-panel">
+
+        <h2>
+            Waste Categories
+        </h2>
+
+
+        <div
+            id="categoryList"
+            class="category-list"
+        ></div>
+
+    </section>
+
+
+
+    <section class="dashboard-panel">
+
+        <h2>
+            Recent Analysis
+        </h2>
+
+
+        <div
+            id="historyList"
+            class="history-list"
+        ></div>
+
+    </section>
+
+
+
+    <div class="dashboard-note">
+
+        EcoSort AI statistics are intended for
+        project demonstration and sustainability
+        education. Waste disposal practices may
+        vary according to local regulations and
+        collection systems.
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        EcoSort AI • SDG 12
+    </p>
+
+</footer>
+
+
+
+<script>
+
+const API_URL =
+    "http://localhost:5000";
+
+
+/* =====================================
+   DASHBOARD
+===================================== */
+
+async function loadDashboard() {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/api/statistics`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        document.getElementById(
+            "totalAnalyses"
+        ).textContent =
+            data.totalAnalyses || 0;
+
+
+        document.getElementById(
+            "totalItems"
+        ).textContent =
+            data.totalItems || 0;
+
+
+        document.getElementById(
+            "averageConfidence"
+        ).textContent =
+            `${data.averageConfidence || 0}%`;
+
+
+        document.getElementById(
+            "averageEcoScore"
+        ).textContent =
+            data.averageEcoScore || 0;
+
+
+        renderCategories(
+            data.categories || {}
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard error:",
+            error
+        );
+
+
+        loadLocalStatistics();
+    }
+
+
+    loadHistory();
+}
+
+
+/* =====================================
+   CATEGORIES
+===================================== */
+
+function renderCategories(
+    categories
+) {
+
+    const container =
+        document.getElementById(
+            "categoryList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    const names =
+        Object.keys(
+            categories
+        );
+
+
+    if (
+        names.length ===
+        0
+    ) {
+
+        const message =
+            document.createElement(
+                "p"
+            );
+
+
+        message.className =
+            "empty-history";
+
+
+        message.textContent =
+            "No category statistics available yet.";
+
+
+        container.appendChild(
+            message
+        );
+
+
+        return;
+    }
+
+
+    names.forEach(
+        name => {
+
+            const row =
+                document.createElement(
+                    "div"
+                );
+
+
+            row.className =
+                "category-row";
+
+
+            const label =
+                document.createElement(
+                    "span"
+                );
+
+
+            label.textContent =
+                name;
+
+
+            const count =
+                document.createElement(
+                    "strong"
+                );
+
+
+            count.textContent =
+                categories[name];
+
+
+            row.appendChild(
+                label
+            );
+
+
+            row.appendChild(
+                count
+            );
+
+
+            container.appendChild(
+                row
+            );
+        }
+    );
+}
+
+
+/* =====================================
+   HISTORY
+===================================== */
+
+async function loadHistory() {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/api/history`
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (
+            data.items &&
+            data.items.length >
+            0
+        ) {
+
+            renderHistory(
+                data.items
+            );
+
+
+            return;
+        }
+
+    } catch (error) {
+
+        console.error(
+            "History error:",
+            error
+        );
+    }
+
+
+    const localHistory =
+        JSON.parse(
+            localStorage.getItem(
+                "ecosortHistory"
+            ) ||
+            "[]"
+        );
+
+
+    renderHistory(
+        localHistory
+    );
+}
+
+
+/* =====================================
+   HISTORY RENDER
+===================================== */
+
+function renderHistory(
+    history
+) {
+
+    const container =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    container.innerHTML =
+        "";
+
+
+    if (
+        history.length ===
+        0
+    ) {
+
+        const message =
+            document.createElement(
+                "p"
+            );
+
+
+        message.className =
+            "empty-history";
+
+
+        message.textContent =
+            "No analysis history yet. Analyze some waste first.";
+
+
+        container.appendChild(
+            message
+        );
+
+
+        return;
+    }
+
+
+    history
+        .slice(
+            0,
+            10
+        )
+        .forEach(
+            entry => {
+
+                const card =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                card.className =
+                    "history-card";
+
+
+                const top =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                top.className =
+                    "history-top";
+
+
+                const title =
+                    document.createElement(
+                        "strong"
+                    );
+
+
+                const count =
+                    entry.items
+                        ? entry.items.length
+                        : 0;
+
+
+                title.textContent =
+                    `${count} item${count === 1 ? "" : "s"} detected`;
+
+
+                const date =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                date.textContent =
+                    formatDate(
+                        entry.createdAt
+                    );
+
+
+                top.appendChild(
+                    title
+                );
+
+
+                top.appendChild(
+                    date
+                );
+
+
+                const description =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                if (
+                    entry.items &&
+                    entry.items.length
+                ) {
+
+                    description.textContent =
+                        entry.items
+                            .map(
+                                item =>
+                                    `${item.item} (${item.category})`
+                            )
+                            .join(
+                                " • "
+                            );
+
+                } else {
+
+                    description.textContent =
+                        "Analysis recorded.";
+                }
+
+
+                card.appendChild(
+                    top
+                );
+
+
+                card.appendChild(
+                    description
+                );
+
+
+                container.appendChild(
+                    card
+                );
+            }
+        );
+}
+
+
+/* =====================================
+   LOCAL STATISTICS
+===================================== */
+
+function loadLocalStatistics() {
+
+    const history =
+        JSON.parse(
+            localStorage.getItem(
+                "ecosortHistory"
+            ) ||
+            "[]"
+        );
+
+
+    let totalItems =
+        0;
+
+
+    let confidenceTotal =
+        0;
+
+
+    let scoreTotal =
+        0;
+
+
+    let itemCount =
+        0;
+
+
+    const categories =
+        {};
+
+
+    history.forEach(
+        entry => {
+
+            if (
+                !entry.items
+            ) {
+
+                return;
+            }
+
+
+            entry.items.forEach(
+                item => {
+
+                    totalItems++;
+
+
+                    itemCount++;
+
+
+                    confidenceTotal +=
+                        Number(
+                            item.confidence
+                        ) || 0;
+
+
+                    scoreTotal +=
+                        Number(
+                            item.ecoScore
+                        ) || 0;
+
+
+                    const category =
+                        item.category ||
+                        "Unknown";
+
+
+                    categories[
+                        category
+                    ] =
+                        (
+                            categories[
+                                category
+                            ] ||
+                            0
+                        ) + 1;
+                }
+            );
+        }
+    );
+
+
+    document.getElementById(
+        "totalAnalyses"
+    ).textContent =
+        history.length;
+
+
+    document.getElementById(
+        "totalItems"
+    ).textContent =
+        totalItems;
+
+
+    document.getElementById(
+        "averageConfidence"
+    ).textContent =
+        itemCount
+            ? `${Math.round(
+                confidenceTotal /
+                itemCount
+            )}%`
+            : "0%";
+
+
+    document.getElementById(
+        "averageEcoScore"
+    ).textContent =
+        itemCount
+            ? Math.round(
+                scoreTotal /
+                itemCount
+            )
+            : 0;
+
+
+    renderCategories(
+        categories
+    );
+}
+
+
+/* =====================================
+   DATE
+===================================== */
+
+function formatDate(
+    value
+) {
+
+    if (!value) {
+        return "";
+    }
+
+
+    const date =
+        new Date(
+            value
+        );
+
+
+    return date.toLocaleString();
+}
+
+
+loadDashboard();
+
+</script>
+
+</body>
+
+</html>
