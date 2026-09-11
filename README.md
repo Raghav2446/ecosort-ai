@@ -1,48 +1,91 @@
 # EcoSort AI
 
-## AI-Powered Waste Segregation and Disposal Assistant
+EcoSort AI is an AI-powered waste segregation
+and disposal assistant developed to support
+UN SDG 12: Responsible Consumption and Production.
 
-EcoSort AI is an AI-powered web application that helps users identify waste items and understand how they should be disposed of responsibly.
+## Features
 
-Users can either upload an image of waste or describe the waste using text. The application uses Google's Gemini AI to analyze the input and provides the detected waste category, confidence score, disposal guidance, reuse suggestions, environmental tips, and an eco score.
+- AI image waste detection
+- Multiple waste detection
+- Text-based waste classification
+- Waste category prediction
+- Confidence score
+- Disposal recommendations
+- Reuse suggestions
+- Hazard warnings
+- Sustainability tips
+- Eco Score
+- Analysis history
+- Sustainability dashboard
+- MongoDB integration
+- Responsible AI safeguards
 
----
+## Technology Stack
 
-## Project Objective
+Frontend:
+- HTML
+- CSS
+- JavaScript
 
-Improper waste segregation is a major environmental challenge. People often struggle to identify whether an item belongs in recyclable, organic, electronic, hazardous, glass, or general waste.
+Backend:
+- Node.js
+- Express.js
 
-EcoSort AI aims to make waste segregation easier by providing quick, AI-assisted disposal guidance.
+AI:
+- Google Gemini
 
-The project focuses on:
+Database:
+- MongoDB
 
-- AI-assisted waste identification
-- Responsible waste segregation
-- Sustainable disposal practices
-- Reuse awareness
-- Environmental education
+## Waste Categories
 
----
+- Organic
+- Recyclable
+- E-Waste
+- Hazardous
+- Glass
+- General Waste
+- Unknown
 
-## Sustainable Development Goal
+## SDG Alignment
 
-### SDG 12 - Responsible Consumption and Production
+Primary Goal:
 
-EcoSort AI supports **UN Sustainable Development Goal 12** by encouraging responsible waste management, recycling, reuse, and sustainable consumption practices.
+SDG 12 - Responsible Consumption and Production
 
----
+## Responsible AI
 
-## Key Features
+EcoSort AI uses confidence thresholds,
+uncertainty handling, safety warnings and
+human verification guidance.
 
-### 1. Image-Based Waste Analysis
+The system is intended for educational and
+sustainability assistance and should not replace
+local waste-management regulations.
 
-Users can upload a waste image and the AI analyzes the image to identify clearly visible waste items.
+## Running Locally
 
-The system can detect multiple items in a single image.
+Install dependencies:
 
-### 2. Text-Based Waste Analysis
+npm install
 
-Users can describe an item using text, for example:
+Create a .env file:
 
-```text
-plastic water bottle
+GEMINI_API_KEY=your_key
+MONGODB_URI=your_connection_string
+PORT=5000
+
+Start the server:
+
+npm run dev
+
+Open frontend/index.html using Live Server.
+
+## Future Scope
+
+- Location-aware disposal guidance
+- Mobile application
+- Advanced waste detection
+- Analytics improvements
+- Community sustainability challenges
